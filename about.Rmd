@@ -1,0 +1,65 @@
+---
+title: "About Me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# This is Kexin's awesome website
+
+## Personal Information
+
+* Name: Kexin Sun
+* Mobile phone: 814-826-5556
+* E-mail: sk4833@cumc.columbia.edu
+
+<br/>
+
+## Education Background
+
+* Pennsylvania State University - Park  09/2016-05/2020 
+  - Bachelor of Science in Applied Statistics
+  - Minors: Japanese and Economics
+  
+* Columbia University   09/2020-05/2022
+  - Master of Science in Biostatistics
+
+<br/>
+
+  
+## Internships
+
+* Sino-Japan Friendship Center for Environmental Protection, Beijing, China
+  - Data analyst    05/2019—06/2019
+  - Got familiar with the big data processing and analysis
+  - Learned to constructed Generalized Additive Models through R 
+  - Mastered the current background formula of AQI in China and constructed AQHI Model 
+
+* Sinolink Securities, Beijing, China
+  - Intern         06/2018—08/2018
+  - Helped clients to update their personal information on the App
+  - Summarized and entered daily business data into the computer 
+
+<br/>
+  
+## Proficiency
+* Software: SAS
+* Programming: R, Python
+* Language: English(Fluent), Japanese(Fluent), Chinese(Native)
+
+<br/>
+
+## Links
+
+Here are some links to my other personal pages.
+
+* [Github](https://github.com/keksin)
+* [E-mail](mailto:sk4833@cumc.columbia.edu)
+* [Google](https://www.google.com/)
+
+## My cat
+
+Here is my cat Yoyo, a blue-bicolor ragdoll
+
+![](image/yoyo1.jpeg)
