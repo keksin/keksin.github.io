@@ -1,0 +1,85 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+    theme: sandstone
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+library(lubridate)
+library(flexdashboard)
+```
+
+
+```{r}
+data("rest_inspec")
+
+restaurant_df = 
+  rest_inspec %>%
+  filter(
+    cuisine_description == "American",
+    grade == c("A", "B", "C"),
+    score %in% 10:100
+  ) %>%
+  mutate(inspection_date = as_date(inspection_date)) %>% 
+  select(inspection_date,cuisine_description,grade,boro,score,dba)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+restaurant_df %>%
+  mutate(text_label = str_c("Grade: ", grade, "\nResturants: ", dba)) %>%
+  plot_ly(
+    x = ~inspection_date, y = ~score, color = ~boro, text = ~text_label,
+    alpha = .5, type = "scatter", mode = "markers") %>% 
+  layout(
+    xaxis = list(title = "Inspection Date"),
+    yaxis = list(title = "Score"),
+    title = "Inspection Date vs. Score"
+  )
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+restaurant_df %>%
+  mutate(boro = fct_reorder(boro, score)) %>%
+  plot_ly(
+    y = ~score, x = ~boro, color = ~boro, 
+    type = "box", colors = "viridis") %>%
+  layout(
+    xaxis = list(title = "Restaurant Location"),
+    yaxis = list(title = "Score"),
+    title = "Location vs. Score"
+    )
+```
+
+### Chart C
+
+```{r}
+restaurant_df %>%
+  count(boro) %>%
+  mutate(boro = fct_reorder(boro, n)) %>%
+  plot_ly(
+    x = ~boro, y = ~n, color = ~boro, 
+    type = "bar", colors = "viridis") %>%
+   layout(
+    xaxis = list(title = "Restaurant Location"),
+    yaxis = list(title = "Count"),
+    title = "Location vs. Count"
+  )
+```
+
